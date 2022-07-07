@@ -1,0 +1,7 @@
+{
+  "name": "AgendaAe",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

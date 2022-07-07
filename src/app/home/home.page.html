@@ -1,0 +1,36 @@
+<ion-content class="ion-padding" fullscreen>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-img class="logo_agendamento" src="../../assets/img/logo_agenda.jpeg"></ion-img>
+      </ion-col>
+    </ion-row>    
+    <ion-row>
+      <ion-col>
+        <ion-button  expand="block" (click)="navegarParaServicos()">
+          <ion-icon name="calendar-outline" slot="end"></ion-icon>
+          <ion-label>
+            AGENDAR HORÁRIO
+          </ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button>          
+          <ion-icon slot="icon-only" name="call-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button>
+          <ion-icon slot="icon-only" name="logo-whatsapp"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button>
+          <ion-icon slot="icon-only" name="logo-instagram"></ion-icon>
+        </ion-button>
+      </ion-col>            
+    </ion-row>     
+  </ion-grid>
+</ion-content>

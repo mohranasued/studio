@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>Selecione um Serviço</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" fullscreen>
+  <ion-card *ngFor="let item of servicos" (click)="navegarParaAgendamento(item)">
+    <div>
+      <ion-img [src]="item.imgUrl" [alt]="item.nome"></ion-img>
+    </div>
+    <ion-card-header>
+      <ion-card-subtitle class="moeda">{{ item.preco | currency : 'BRL' : true : '1.2' }}</ion-card-subtitle>
+      <ion-card-title>{{ item.nome }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{ item.descricao }}</ion-card-content>
+  </ion-card>
+</ion-content>

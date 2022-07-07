@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>Confirmar agendamento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <form [formGroup]="infoAgendamento">
+      <ion-row>
+        <ion-col>
+          <ion-label>
+            Agendar dia {{ data }} às {{ hora }}
+          </ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Nome</ion-label>
+            <ion-input formControlName="nome"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Sobrenome</ion-label>
+            <ion-input formControlName="sobrenome"></ion-input>
+          </ion-item>        
+        </ion-col>      
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Celular</ion-label>
+            <ion-input formControlName="celular"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>    
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label position="stacked">Observações?</ion-label>
+            <ion-textarea formControlName="observacao"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-button expand="block" (click)="enviarInformacoes()">
+            <ion-icon slot="end" name="logo-whatsapp"></ion-icon>          
+            <ion-label>
+              CONFIRMAR VIA WHATSAPP
+            </ion-label>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-grid>
+</ion-content>
