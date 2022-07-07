@@ -34,9 +34,11 @@
       </ion-col>   
     </ion-row>
   </ion-item>
-  <ion-datetime locale="pt-BR" (ionChange)="buscaHorariosDisponiveis($event)">
-    <span slot="time-label"></span>
-  </ion-datetime>
+  <ion-item class="ion-justify-content-center">
+    <ion-datetime locale="pt-BR" (ionChange)="buscaHorariosDisponiveis($event)">
+      <span slot="time-label"></span>
+    </ion-datetime>
+  </ion-item>
   <ion-list lines="none">
     <ion-item *ngFor="let horario of horariosDisponives">
       <ion-button [disabled]="!horario.disponivel" [color]="horario.disponivel ? 'success' : 'danger'" expand="block" (click)="reservarData(horario.hora)">{{ horario.hora }}</ion-button>
