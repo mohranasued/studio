@@ -13,8 +13,7 @@ import { EnviarAgendamentoService } from './services/enviar-agendamento.service'
 export class EnviarAngendamentoPage implements OnInit {
 
   constructor(
-    private fb: FormBuilder,
-    
+    private fb: FormBuilder,    
     private alertController: AlertController,
     private activatedRoute: ActivatedRoute,
     private _services: EnviarAgendamentoService,

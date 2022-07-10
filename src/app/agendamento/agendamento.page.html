@@ -34,9 +34,8 @@
       </ion-col>   
     </ion-row>
   </ion-item>
-  <ion-item class="ion-justify-content-center">
-    <ion-datetime locale="pt-BR" (ionChange)="buscaHorariosDisponiveis($event)">
-      <span slot="time-label"></span>
+  <ion-item class="ion-padding">
+    <ion-datetime locale="pt-BR" [isDateEnabled]="isWeekday" (ionChange)="buscaHorariosDisponiveis($event)">
     </ion-datetime>
   </ion-item>
   <ion-list lines="none">

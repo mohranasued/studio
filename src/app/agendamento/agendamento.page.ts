@@ -37,7 +37,10 @@ export class AgendamentoPage implements OnInit {
   buscaHorariosDisponiveis($event: any) {
     this.diaDocRef = format(parseISO($event.detail.value), 'dd-MM-yyyy');
     const docData = this._service.buscaHorariosDisponiveis(this.diaDocRef);
-    const horasDisponiveisPadrao = Array.from({length: 11}, (_, i) => i + 7).map((x) => { return {hora: `${x}:00`, disponivel: true}});
+    const dataParaIdentificarRangeHoras = parseISO($event.detail.value).getUTCDay();
+    console.log(dataParaIdentificarRangeHoras);
+    const horasDisponiveisPadrao = dataParaIdentificarRangeHoras == 0 ? Array.from({length: 9}, (_, i) => i + 7).map((x) => { return {hora: `${x}:00`, disponivel: true}}) : Array.from({length: 11}, (_, i) => i + 7).map((x) => { return {hora: `${x}:00`, disponivel: true}});
+
     docData.subscribe((response: HorariosDisponiveisFirebaseModel) => {
       if(response) {
         this.horariosDisponives = horasDisponiveisPadrao;
@@ -82,5 +85,16 @@ export class AgendamentoPage implements OnInit {
     });
 
     await alerta.present();
+  }
+
+  isWeekday = (dateString: string) => {
+    const date = new Date(dateString);
+    const utcDay = date.getUTCDay();
+    
+    /**
+     * Date will be enabled if it is not
+     * Sunday or Saturday
+     */
+    return utcDay !== 0 && utcDay !== 1;
   }
 }

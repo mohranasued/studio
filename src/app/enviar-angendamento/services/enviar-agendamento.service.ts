@@ -14,7 +14,7 @@ export class EnviarAgendamentoService {
 
     adicionarReserva(dia: string, hora: string) {
         const agendaDocRef = doc(this._firestore, `agendamento/${dia}`);  
-        return setDoc(agendaDocRef, {horarios: arrayUnion(hora)});
+        return setDoc(agendaDocRef, { horarios: arrayUnion(hora) }, { merge: true });
     }
 
     adicionarInfoCliente(infoCliente: InfoClienteModel) {

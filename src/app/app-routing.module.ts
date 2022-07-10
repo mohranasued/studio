@@ -22,6 +22,10 @@ const routes: Routes = [
   {
     path: 'enviar-angendamento',
     loadChildren: () => import('./enviar-angendamento/enviar-angendamento.module').then( m => m.EnviarAngendamentoPageModule)
+  },
+  {
+    path: 'administracao',
+    loadChildren: () => import('./administracao/administracao.module').then( m => m.AdministracaoPageModule)
   }
 ];
 
