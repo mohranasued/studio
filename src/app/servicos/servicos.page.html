@@ -11,9 +11,13 @@
       <ion-img [src]="item.imgUrl" [alt]="item.nome"></ion-img>
     </div>
     <ion-card-header>
-      <ion-card-subtitle class="moeda">{{ item.preco | currency : 'BRL' : true : '1.2' }}</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="item.preco > 0" class="moeda">{{ item.preco | currency : 'BRL' : true : '1.2' }}</ion-card-subtitle>
+      <ion-card-subtitle *ngIf="item.preco == 0" class="moeda">À combinar</ion-card-subtitle>
       <ion-card-title>{{ item.nome }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>{{ item.descricao }}</ion-card-content>
+    <ion-footer *ngIf="item.id == 8">
+      <ion-button expand="block">SABER MAIS WHATSAPP</ion-button>
+    </ion-footer>
   </ion-card>
 </ion-content>

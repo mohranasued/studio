@@ -29,6 +29,7 @@ export class ServicosPage implements OnInit {
           preco: servico.preco
       }
   };
+  if(servico.id !== 8)
     this._router.navigate(['agendamento'], navigationExtras);
   }
 }

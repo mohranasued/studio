@@ -57,7 +57,14 @@ export class ServicosService {
                 descricao: 'Implantação de um pigmento na primeira camada da pele , aproximando a aparência dos pelos reais da sobrancelha. E também temos o efeito Shadow que aparenta o efeito da henna , ambas com durabilidade de 8 a 12 meses.',
                 imgUrl: 'https://raw.githubusercontent.com/mohranasued/studio/main/src/assets/img/img7.jpeg',
                 preco: 320
-            },            
+            }, 
+            {
+                id: 8,
+                nome: 'Curso de Design de Sobrancelhas',
+                descricao: 'Curso de Design estratégico vip, do básico ao avançado 🌸.',
+                imgUrl: 'https://raw.githubusercontent.com/mohranasued/studio/main/src/assets/img/img8.jpeg',
+                preco: 0
+            },                       
         ]
     }
 }
