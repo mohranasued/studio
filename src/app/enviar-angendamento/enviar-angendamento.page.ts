@@ -41,15 +41,14 @@ export class EnviarAngendamentoPage implements OnInit {
         this.nome = params.nome;
         this.preco = params.preco;
         this.data = params.data;
-        this.hora = params.hora;
-        this.href = `${this.url}send?phone=+${this.codigoPais}${this.whatsNumero}&text=Olá, confirmo meu horário dia ${this.data} às ${this.hora}.`
-        console.log(this.href);
+        this.hora = params.hora;        
       }
     });
   }
 
   async enviarInformacoes() {    
     if(!this.infoAgendamento.valid) {
+      this.href = `${this.url}send?phone=+${this.codigoPais}${this.whatsNumero}&text=Olá Mohrana, sou ${this.infoAgendamento.value.nome} ${this.infoAgendamento.value.sobrenome}, gostaria de confirmar meu horário dia ${this.data} às ${this.hora}.`
       const alerta = await this.alertController.create({
         header: 'Atenção',
         message: `Por favor, preencha aos menos primeiro nome e celular para facilitar entrar em contato, obrigada 😉`,
