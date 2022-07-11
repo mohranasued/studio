@@ -88,11 +88,22 @@ export class AgendamentoPage implements OnInit {
   isWeekday = (dateString: string) => {
     const date = new Date(dateString);
     const utcDay = date.getUTCDay();
-    
+    const x = new Date(2022, 6, 14, 21);
+    const y = new Date(2022, 6, 15, 21);
+
+    // console.log('data-calendario ==========')
+    // console.log(date);
+    // console.log('data-calendario ==========')
+
+    // console.log('data-configurado ==========')
+    // console.log(x);
+    // console.log(y);
+    // console.log('data-configurado ==========')
+
     /**
      * Date will be enabled if it is not
      * Sunday or Saturday
      */
-    return utcDay !== 0 && utcDay !== 1;
+    return (utcDay !== 0 && utcDay !== 1 && date.valueOf() != x.valueOf() && date.valueOf() != y.valueOf());
   }
 }
