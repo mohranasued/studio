@@ -72,18 +72,21 @@ export class EnviarAngendamentoPage implements OnInit {
       infoCliente.observacao = this.infoAgendamento.value.observacao;
       infoCliente.data = this.data;
       infoCliente.hora = this.hora;
+      infoCliente.servico = this.nome;
+      infoCliente.precoServico = this.preco;
 
       this._services.adicionarInfoCliente(infoCliente).then(() => {
         this._services.adicionarReserva(this.data, this.hora).then(async() => {
           const alerta = await this.alertController.create({
             header: 'Sucesso',
-            message: `Agendamento realizado com sucesso, te aguardo anciosamente, obrigada!`,
+            message: `Agendamento realizado com sucesso, toque em OK para me avisar via whatsapp, obrigada ;)`,
             buttons: [
               {
-                text: 'Ok',
+                text: 'OK',
                 role: 'confirm',
                 handler: () => {
                   this.alertController.dismiss();
+                  this.confirmarWhatsApp();
                   this.router.navigate(['home']);
                 }
               },    
@@ -126,6 +129,11 @@ export class EnviarAngendamentoPage implements OnInit {
         await alerta.present();
       })
     }
-  }  
+  }
+  
+  confirmarWhatsApp()      
+  {
+    window.open(this.href);
+  }
 }
 

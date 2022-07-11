@@ -28,8 +28,6 @@ export class AgendamentoPage implements OnInit {
       if(params){
         this.nome = params.nome;
         this.preco = params.preco;
-        console.log(this.nome );
-        console.log(this.preco);
       }
     });
   }

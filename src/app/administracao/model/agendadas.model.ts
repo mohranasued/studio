@@ -6,4 +6,5 @@ export class AgendadasModel {
     hora: string;
     observacao: string;
     celular: string;
+    servico: string;
 }

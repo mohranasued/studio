@@ -15,16 +15,22 @@
       <ion-card-content>
         <ion-item>
           <ion-label>
+            <strong>Serviço: </strong>
+            {{ reserva.servico }}
+          </ion-label>
+        </ion-item>        
+        <ion-item>
+          <ion-label>
             <strong>Celular: </strong>
             {{ reserva.celular }}
           </ion-label>
         </ion-item>
         <ion-item>
-          <ion-label>
+          <ion-label class="ion-text-wrap">
             <strong>Observação: </strong>
             {{ reserva.observacao }}
           </ion-label>
-        </ion-item>
+        </ion-item>        
       </ion-card-content>
       <ion-footer>
         <ion-button expand="block" color="danger" (click)="removerReservaAgendamentos(reserva.id, reserva.data, reserva.hora)">CANCELAR AGENDA</ion-button>

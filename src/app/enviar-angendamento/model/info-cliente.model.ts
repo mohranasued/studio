@@ -5,4 +5,6 @@ export class InfoClienteModel {
     observacao: string;
     data: string;
     hora: string;
+    servico: string;
+    precoServico: number;
 }

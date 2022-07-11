@@ -25,7 +25,9 @@ export class EnviarAgendamentoService {
             celular: infoCliente.celular,
             observacao: infoCliente.observacao ?? '',
             data: infoCliente.data,
-            hora: infoCliente.hora
+            hora: infoCliente.hora,
+            servico: infoCliente.servico,
+            preco: infoCliente.precoServico
         });
     }
 }
