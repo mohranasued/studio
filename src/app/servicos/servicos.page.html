@@ -17,7 +17,11 @@
     </ion-card-header>
     <ion-card-content>{{ item.descricao }}</ion-card-content>
     <ion-footer *ngIf="item.id == 8">
-      <ion-button expand="block">SABER MAIS WHATSAPP</ion-button>
+      <ion-button href="{{href}}" expand="block">
+        SABER MAIS NO WHATSAPP
+        <ion-icon slot="end" name="logo-whatsapp"></ion-icon>
+      </ion-button>
+      
     </ion-footer>
   </ion-card>
 </ion-content>

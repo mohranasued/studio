@@ -18,6 +18,12 @@ export class ServicosPage implements OnInit {
     private _router: Router,
     ) { }
 
+    private codigoPais = '55';
+    private whatsNumero = '16982391461';
+    public url = 'https://api.whatsapp.com/';
+    public href: string = `${this.url}send?phone=+${this.codigoPais}${this.whatsNumero}&text=Olá Mohrana, gostaria de saber mais sobre o curso de Design de Sobrancelhas.`      ;
+   
+
   ngOnInit() {
     this.servicos = this._services.getServicos();
   }
