@@ -34,7 +34,7 @@ const firebaseConfig = {
     provideFirebaseApp(() => initializeApp({ ...firebaseConfig })),
     provideFirestore(() => getFirestore()),
     IonicModule.forRoot(),
-    AppRoutingModule,    
+    AppRoutingModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

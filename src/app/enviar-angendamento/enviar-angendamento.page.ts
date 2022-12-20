@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { InfoClienteModel } from './model/info-cliente.model';
@@ -13,7 +13,7 @@ import { EnviarAgendamentoService } from './services/enviar-agendamento.service'
 export class EnviarAngendamentoPage implements OnInit {
 
   constructor(
-    private fb: FormBuilder,    
+    private fb: FormBuilder,
     private alertController: AlertController,
     private activatedRoute: ActivatedRoute,
     private _services: EnviarAgendamentoService,
@@ -32,22 +32,22 @@ export class EnviarAngendamentoPage implements OnInit {
   public hora: string = '';
   public href: string = '';
   private codigoPais = '55';
-  private whatsNumero = '16982391461';
+  private whatsNumero = '16993903769';
   public url = 'https://api.whatsapp.com/';
-;
+  ;
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe(params => {
-      if(params){
+      if (params) {
         this.nome = params.nome;
         this.preco = params.preco;
         this.data = params.data;
-        this.hora = params.hora;        
+        this.hora = params.hora;
       }
     });
   }
 
-  async enviarInformacoes() {    
-    if(!this.infoAgendamento.valid) {      
+  async enviarInformacoes() {
+    if (!this.infoAgendamento.valid) {
       const alerta = await this.alertController.create({
         header: 'Atenção',
         message: `Por favor, preencha aos menos primeiro nome e celular para facilitar entrar em contato, obrigada 😉`,
@@ -58,12 +58,12 @@ export class EnviarAngendamentoPage implements OnInit {
             handler: () => {
               this.alertController.dismiss();
             }
-          },    
+          },
         ]
       });
       await alerta.present();
     } else {
-      this.href = `${this.url}send?phone=+${this.codigoPais}${this.whatsNumero}&text=Olá Mohrana, sou ${this.infoAgendamento.value.nome} ${this.infoAgendamento.value.sobrenome}, gostaria de confirmar meu horário dia ${this.data} às ${this.hora} para o serviço de ${this.nome}.`      
+      this.href = `${this.url}send?phone=+${this.codigoPais}${this.whatsNumero}&text=Olá Mohrana, sou ${this.infoAgendamento.value.nome} ${this.infoAgendamento.value.sobrenome}, gostaria de confirmar meu horário dia ${this.data} às ${this.hora} para o serviço de ${this.nome}.`
       const infoCliente = new InfoClienteModel();
       infoCliente.nome = this.infoAgendamento.value.nome;
       infoCliente.sobrenome = this.infoAgendamento.value.sobrenome;
@@ -75,7 +75,7 @@ export class EnviarAngendamentoPage implements OnInit {
       infoCliente.precoServico = this.preco;
 
       this._services.adicionarInfoCliente(infoCliente).then(() => {
-        this._services.adicionarReserva(this.data, this.hora).then(async() => {
+        this._services.adicionarReserva(this.data, this.hora).then(async () => {
           const alerta = await this.alertController.create({
             header: 'Sucesso',
             message: `Agendamento realizado com sucesso, toque em OK para me avisar via whatsapp, obrigada ;)`,
@@ -88,10 +88,10 @@ export class EnviarAngendamentoPage implements OnInit {
                   this.confirmarWhatsApp();
                   this.router.navigate(['home']);
                 }
-              },    
+              },
             ]
           });
-  
+
           await alerta.present();
         }).catch(async () => {
           const alerta = await this.alertController.create({
@@ -104,10 +104,10 @@ export class EnviarAngendamentoPage implements OnInit {
                 handler: () => {
                   this.alertController.dismiss();
                 }
-              },    
+              },
             ]
           });
-  
+
           await alerta.present();
         });
       }).catch(async () => {
@@ -121,7 +121,7 @@ export class EnviarAngendamentoPage implements OnInit {
               handler: () => {
                 this.alertController.dismiss();
               }
-            },    
+            },
           ]
         });
 
@@ -129,9 +129,8 @@ export class EnviarAngendamentoPage implements OnInit {
       })
     }
   }
-  
-  confirmarWhatsApp()      
-  {
+
+  confirmarWhatsApp() {
     window.open(this.href);
   }
 }

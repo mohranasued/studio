@@ -16,7 +16,7 @@ import { EnviarAgendamentoService } from './services/enviar-agendamento.service'
     IonicModule,
     EnviarAngendamentoPageRoutingModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [EnviarAgendamentoService],
   declarations: [EnviarAngendamentoPage]
